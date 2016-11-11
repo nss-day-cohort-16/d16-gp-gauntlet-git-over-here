@@ -77,6 +77,8 @@ $("#randomBtn").on("click", function() {
 $("#fightBtn").on("click", function() {
   enemyChar = Gauntlet.Combatants.generateCharacter();
   updateStats();
+  console.log("enemyChar", enemyChar);
+  $("body").attr("id", "battleview");
 });
 
  function updateStats() {

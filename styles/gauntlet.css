@@ -86,4 +86,15 @@ body {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0; }
 
+#battleview {
+  background-image: url("/images/Trader_Joes.jpg");
+  background-size: 100%; }
+
+.resultsView {
+  display: none; }
+
+.avatar {
+  max-width: 30%;
+  max-height: 30%; }
+
 /*# sourceMappingURL=gauntlet.css.map */
