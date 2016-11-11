@@ -1,128 +1,134 @@
 "use strict";
+
+
+// var Gauntlet = (function(oldGauntlet) {
 /*
   Test code to generate a human player and an orc player
  */
-var userChar;
-var enemyChar;
-var playerName;
-let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
+  var userChar;
+  var enemyChar;
+  var playerName;
+  let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
 
-// $(document).ready(function() {
-  /*
-    Show the initial view that accepts player name
-   */
-  $("#player-setup").show();
+  // $(document).ready(function() {
+    /*
+      Show the initial view that accepts player name
+     */
+    $("#player-setup").show();
 
-  /*
-    When any button with card__link class is clicked,
-    move on to the next view.
-   */
-  $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    /*
+      When any button with card__link class is clicked,
+      move on to the next view.
+     */
+    $(".card__link").click(function(e) {
+      var nextCard = $(this).attr("next");
+      var moveAlong = false;
 
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        playerName = $("#player-name").val();
-        console.log("playerName", playerName);
-        break;
-      case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-    }
+      switch (nextCard) {
+        case "card--class":
+          moveAlong = ($("#player-name").val() !== "");
+          playerName = $("#player-name").val();
+          console.log("playerName", playerName);
+          break;
+        case "card--weapon":
+          moveAlong = ($("#player-name").val() !== "");
+          break;
+      }
 
-    if (moveAlong) {
+      if (moveAlong) {
+        $(".card").hide();
+        $("." + nextCard).show();
+      }
+    });
+
+    /*
+      When the back button clicked, move back a view
+     */
+    $(".card__back").click(function(e) {
+      var previousCard = $(this).attr("previous");
       $(".card").hide();
-      $("." + nextCard).show();
-    }
+      $("." + previousCard).show();
+    });
+
+  // });
+
+
+
+  //select character event handler. Assigns an instance of a character to the userChar object
+  $(document).on("click", ".charBtn", function() {
+    userChar = new Gauntlet.Combatants[this.id]();
+    userChar.playerName = playerName;
+    console.log("userChar", userChar);
   });
 
-  /*
-    When the back button clicked, move back a view
-   */
-  $(".card__back").click(function(e) {
-    var previousCard = $(this).attr("previous");
-    $(".card").hide();
-    $("." + previousCard).show();
+
+
+
+
+
+  $("#randomBtn").on("click", function() {
+    userChar = Gauntlet.Combatants.generateCharacter();
+    userChar.playerName = playerName;
+    console.log("userChar", userChar);
   });
 
-// });
-
-
-
-//select character event handler. Assigns an instance of a character to the userChar object
-$(document).on("click", ".charBtn", function() {
-  userChar = new Gauntlet.Combatants[this.id]();
-  userChar.playerName = playerName;
-  console.log("userChar", userChar);
-});
 
 
 
 
 
+  $("#fightBtn").on("click", function() {
+    enemyChar = Gauntlet.Combatants.generateCharacter();
+    updateStats();
+    console.log("enemyChar", enemyChar);
+    $("body").attr("id", "battleview");
+  });
 
-$("#randomBtn").on("click", function() {
-  userChar = Gauntlet.Combatants.generateCharacter();
-  userChar.playerName = playerName;
-  console.log("userChar", userChar);
-});
-
-
-
-
-
-
-$("#fightBtn").on("click", function() {
-  enemyChar = Gauntlet.Combatants.generateCharacter();
-  updateStats();
-  console.log("enemyChar", enemyChar);
-  $("body").attr("id", "battleview");
-});
-
- function updateStats() {
-  $("#playerHealth").html(` "Health: ${userChar.health}" `);
-  $("#userImage").attr("src", ` ${userChar.image} `)
-  $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
-  $("#enemyImage").attr("src", ` ${enemyChar.image} `);
-  }
+   function updateStats() {
+    $("#playerHealth").html(` "Health: ${userChar.health}" `);
+    $("#userImage").attr("src", ` ${userChar.image} `)
+    $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
+    $("#enemyImage").attr("src", ` ${enemyChar.image} `);
+    }
 
 
 
-//////////////////BATTLEGROUND LOGIC******************************
+  //////////////////BATTLEGROUND LOGIC******************************
 
 
 
-//attack function to process attacks and trigger function to update DOM with new health values
-//version with random percentage of damage inflicted
-$(document).on("click", "#attackbtn", function() {
-  //player attacks enemy with varying levels of success
-  enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
-  //enemy attacks player with varying levels of success
-  userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
-  //trigger function that updates the DOM
-  updateStats();
-  console.log("enemyChar.health", enemyChar.health);
-  console.log("userChar.health", userChar.health);
+  //attack function to process attacks and trigger function to update DOM with new health values
+  //version with random percentage of damage inflicted
+  $(document).on("click", "#attackbtn", function() {
+    //player attacks enemy with varying levels of success
+    enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
+    //enemy attacks player with varying levels of success
+    userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
+    //trigger function that updates the DOM
+    updateStats();
+    console.log("enemyChar.health", enemyChar.health);
+    console.log("userChar.health", userChar.health);
 
-})
+  })
 
-//determines if someone has won the game
-$(document).on("click", "#attackbtn", function() {
-  if (enemyChar.health <= 0) {
-      $(".card").hide();
-      $("#victoryPage").show();
-  } else if (userChar.health <= 0) {
-      $(".card").hide();
-      $("#defeatPage").show();
-  }
-})
+  //determines if someone has won the game
+  $(document).on("click", "#attackbtn", function() {
+    if (enemyChar.health <= 0) {
+        $(".card").hide();
+        $("#victoryPage").show();
+    } else if (userChar.health <= 0) {
+        $(".card").hide();
+        $("#defeatPage").show();
+    }
+  })
 
 
 
 
+  // return oldGauntlet;
 
+
+// })(Gauntlet || {});
 
 
 
