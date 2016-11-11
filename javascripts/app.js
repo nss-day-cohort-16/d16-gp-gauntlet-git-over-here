@@ -5,7 +5,7 @@
 var userChar;
 var enemyChar;
 var playerName;
-
+let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
 
 $(document).ready(function() {
   /*
@@ -47,4 +47,12 @@ $(document).ready(function() {
     $("." + previousCard).show();
   });
 
+});
+
+
+
+//select character event handler. Assigns an instance of a character to the userChar object
+$(document).on("click", ".charBtn", function() {
+  userChar = new Gauntlet.Combatants[this.id]();
+  console.log("userChar", userChar);
 });
