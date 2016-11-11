@@ -85,6 +85,7 @@
   });
 
    function updateStats() {
+    $("#player").find("p").html(`${userChar.playerName}`)
     $("#playerHealth").html(` "Health: ${userChar.health}" `);
     $("#userImage").attr("src", ` ${userChar.image} `)
     $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
