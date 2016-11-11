@@ -93,4 +93,8 @@ body {
 .resultsView {
   display: none; }
 
+.avatar {
+  max-width: 30%;
+  max-height: 30%; }
+
 /*# sourceMappingURL=gauntlet.css.map */
