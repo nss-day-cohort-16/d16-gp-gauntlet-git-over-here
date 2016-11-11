@@ -4,6 +4,7 @@
  */
 var userChar;
 var enemyChar;
+var playerName;
 
 
 $(document).ready(function() {
@@ -23,6 +24,8 @@ $(document).ready(function() {
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
+        playerName = $("#player-name").val();
+        console.log("playerName", playerName);
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
