@@ -64,9 +64,50 @@ $(document).on("click", ".charBtn", function() {
 
 
 $("#randomBtn").on("click", function() {
-  Gauntlet.Combatants.generateCharacter(userChar);
+  userChar = Gauntlet.Combatants.generateCharacter();
   userChar.playerName = playerName;
+  console.log("userChar", userChar);
 });
+
+
+
+
+
+
+$("#fightBtn").on("click", function() {
+  enemyChar = Gauntlet.Combatants.generateCharacter();
+  console.log("enemyChar", enemyChar);
+});
+
+
+
+
+//////////////////BATTLEGROUND LOGIC******************************
+
+
+
+//attack function to process attacks and trigger function to update DOM with new health values
+//version with random percentage of damage inflicted
+$(document).on("click", "#attackbtn", function() {
+  //player attacks enemy with varying levels of success
+  enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
+  //enemy attacks player with varying levels of success
+  userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
+  //trigger function that updates the DOM
+  // statUpdate();
+  console.log("enemyChar.health", enemyChar.health);
+  console.log("userChar.health", userChar.health);
+
+})
+
+
+
+
+
+
+
+
+
 
 
 
