@@ -36,12 +36,43 @@ Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 };
 
+// Gauntlet.Combatants.generateCharacter = function(calledChar) {
+//   var random = Math.round(Math.random() * (charArr.length - 1));
+
+//   var randomCharacter = charArr[random];
+
+//   calledChar = new Gauntlet.Combatants[randomCharacter]();
+
+// };
+
+
+
+
+
+
 Gauntlet.Combatants.generateCharacter = function(calledChar) {
   var random = Math.round(Math.random() * (charArr.length - 1));
 
   var randomCharacter = charArr[random];
 
-  userChar = new Gauntlet.Combatants[randomCharacter]();
+  // if (this.id) {}
+
+  calledChar = new Gauntlet.Combatants[randomCharacter]();
+  return calledChar;
+  console.log("calledChar", calledChar);
+  console.log("userChar", userChar);
 
 };
+
+
+
+
+// Gauntlet.Combatants.generateCharacter = function(calledChar) {
+//   var random = Math.round(Math.random() * (charArr.length - 1));
+
+//   var randomCharacter = charArr[random];
+
+//   userChar = new Gauntlet.Combatants[randomCharacter]();
+
+// };
 
