@@ -76,10 +76,17 @@ $("#randomBtn").on("click", function() {
 
 $("#fightBtn").on("click", function() {
   enemyChar = Gauntlet.Combatants.generateCharacter();
+  updateStats();
   console.log("enemyChar", enemyChar);
   $("body").attr("id", "battleview");
 });
 
+ function updateStats() {
+  $("#playerHealth").html(` "Health: ${userChar.health}" `);
+  $("#userImage").attr("src", ` ${userChar.image} `)
+  $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
+  $("#enemyImage").attr("src", ` ${enemyChar.image} `);
+  }
 
 
 
@@ -95,10 +102,21 @@ $(document).on("click", "#attackbtn", function() {
   //enemy attacks player with varying levels of success
   userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
   //trigger function that updates the DOM
-  // statUpdate();
+  updateStats();
   console.log("enemyChar.health", enemyChar.health);
   console.log("userChar.health", userChar.health);
 
+})
+
+//determines if someone has won the game
+$(document).on("click", "#attackbtn", function() {
+  if (enemyChar.health <= 0) {
+      $(".card").hide();
+      $("#victoryPage").show();
+  } else if (userChar.health <= 0) {
+      $(".card").hide();
+      $("#defeatPage").show();
+  }
 })
 
 
