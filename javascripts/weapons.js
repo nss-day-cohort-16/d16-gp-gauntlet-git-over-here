@@ -1,105 +1,115 @@
 "use strict";
 
-var Gauntlet = Gauntlet || {};
-Gauntlet.Weapons = {};
+var Gauntlet = (function(oldGauntlet) {
+
+  oldGauntlet.Weapons = {};
 
 
-Gauntlet.Weapons.Weapon = function() {
-  this.name = "bare hands";
-  this.damage = 1;
-  this.hands = 2;
-
-  this.toString = function() {
-    return this.name;
-  };
-};
-
-Gauntlet.Weapons.Dagger = function() {
-  this.name = "dagger";
-  this.damage = 4;
-  this.hands = 1;
-};
-Gauntlet.Weapons.Dagger.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.BroadSword = function() {
-  this.name = "broad sword";
-  this.damage = 14;
-  this.hands = 2;
-};
-Gauntlet.Weapons.BroadSword.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.WarAxe = function() {
-  this.name = "war axe";
-  this.damage = 18;
-  this.hands = 2;
-};
-Gauntlet.Weapons.WarAxe.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.FryingPan = function() {
-  this.name = "Frying Pan";
-  this.damage = 2;
-  this.hands = 1;
-
-  this.toString = function() {
-    return this.name;
-  };
-};
-Gauntlet.Weapons.FryingPan.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.MachineGun = function() {
-  this.name = "Machine Gun";
-  this.damage = 15;
-  this.hands = 2;
-};
-Gauntlet.Weapons.MachineGun.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.TruthBomb = function() {
-  this.name = "Truth Bomb";
-  this.damage = 30;
-  this.hands = 2;
-};
-Gauntlet.Weapons.TruthBomb.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.FecalFedora = function() {
- this.name = "Fecal Fedora";
- this.damage = 39;
- this.hands = 1;
-};
-Gauntlet.Weapons.FecalFedora.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.TickleFingers = function() {
- this.name = "Tickle Fingers";
- this.damage = 12;
- this.hands = 3;
-};
-Gauntlet.Weapons.TickleFingers.prototype = new Gauntlet.Weapons.Weapon();
-
-
-Gauntlet.Weapons.Hadooken = function () {
- this.name = "Hadooken";
- this.damage = 27;
- this.hands = 4;
-};
-Gauntlet.Weapons.Hadooken.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.LeafShield = function() {
-    this.name = "leaf shield";
-    this.damage = 8;
-    this.hands = 3;
-};
-Gauntlet.Weapons.LeafShield.prototype = new Gauntlet.Weapons.Weapon();
-
-Gauntlet.Weapons.AtomicFire = function() {
-    this.name = "atomic fire";
-    this.damage = 9;
-    this.hands = 4;
-};
-Gauntlet.Weapons.AtomicFire.prototype = new Gauntlet.Weapons.Weapon();
-
-
-Gauntlet.Weapons.Scissors = function() {
-    this.name = "scissors";
-    this.damage = 7;
+  oldGauntlet.Weapons.Weapon = function() {
+    this.name = "bare hands";
+    this.damage = 1;
     this.hands = 2;
-};
-Gauntlet.Weapons.Scissors.prototype = new Gauntlet.Weapons.Weapon();
+
+    this.toString = function() {
+      return this.name;
+    };
+  };
+
+  oldGauntlet.Weapons.Dagger = function() {
+    this.name = "dagger";
+    this.damage = 4;
+    this.hands = 1;
+  };
+  oldGauntlet.Weapons.Dagger.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.BroadSword = function() {
+    this.name = "broad sword";
+    this.damage = 14;
+    this.hands = 2;
+  };
+  oldGauntlet.Weapons.BroadSword.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.WarAxe = function() {
+    this.name = "war axe";
+    this.damage = 18;
+    this.hands = 2;
+  };
+  oldGauntlet.Weapons.WarAxe.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.FryingPan = function() {
+    this.name = "Frying Pan";
+    this.damage = 2;
+    this.hands = 1;
+
+    this.toString = function() {
+      return this.name;
+    };
+  };
+  oldGauntlet.Weapons.FryingPan.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.MachineGun = function() {
+    this.name = "Machine Gun";
+    this.damage = 15;
+    this.hands = 2;
+  };
+  oldGauntlet.Weapons.MachineGun.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.TruthBomb = function() {
+    this.name = "Truth Bomb";
+    this.damage = 30;
+    this.hands = 2;
+  };
+  oldGauntlet.Weapons.TruthBomb.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.FecalFedora = function() {
+   this.name = "Fecal Fedora";
+   this.damage = 39;
+   this.hands = 1;
+  };
+  oldGauntlet.Weapons.FecalFedora.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.TickleFingers = function() {
+   this.name = "Tickle Fingers";
+   this.damage = 12;
+   this.hands = 3;
+  };
+  oldGauntlet.Weapons.TickleFingers.prototype = new oldGauntlet.Weapons.Weapon();
+
+
+  oldGauntlet.Weapons.Hadooken = function () {
+   this.name = "Hadooken";
+   this.damage = 27;
+   this.hands = 4;
+  };
+  oldGauntlet.Weapons.Hadooken.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.LeafShield = function() {
+      this.name = "leaf shield";
+      this.damage = 8;
+      this.hands = 3;
+  };
+  oldGauntlet.Weapons.LeafShield.prototype = new oldGauntlet.Weapons.Weapon();
+
+  oldGauntlet.Weapons.AtomicFire = function() {
+      this.name = "atomic fire";
+      this.damage = 9;
+      this.hands = 4;
+  };
+  oldGauntlet.Weapons.AtomicFire.prototype = new oldGauntlet.Weapons.Weapon();
+
+
+  oldGauntlet.Weapons.Scissors = function() {
+      this.name = "scissors";
+      this.damage = 7;
+      this.hands = 2;
+  };
+  oldGauntlet.Weapons.Scissors.prototype = new oldGauntlet.Weapons.Weapon();
+
+
+
+  return oldGauntlet;
+
+
+
+
+})(Gauntlet || {});
