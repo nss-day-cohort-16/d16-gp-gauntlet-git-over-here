@@ -36,15 +36,12 @@ Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 };
 
-Gauntlet.generateCharacter = function(calledChar) {
-  // Create character array called charArr.
+Gauntlet.Combatants.generateCharacter = function(calledChar) {
   var random = Math.round(Math.random() * (charArr.length - 1));
 
-  // Get the string at the index
   var randomCharacter = charArr[random];
 
-  calledChar = new window[randomCharacter]();
-  //calling function that will display character information in pop up window.
-  charConfirm(calledChar);
+  userChar = new Gauntlet.Combatants[randomCharacter]();
+
 };
 
