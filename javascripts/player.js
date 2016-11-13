@@ -59,9 +59,9 @@ var Gauntlet = (function(oldGauntlet) {
     // if (this.id) {}
 
     calledChar = new Gauntlet.Combatants[randomCharacter]();
-    return calledChar;
     console.log("calledChar", calledChar);
     console.log("userChar", userChar);
+    return calledChar;
 
   };
 
