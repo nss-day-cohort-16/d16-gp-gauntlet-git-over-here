@@ -9,6 +9,10 @@
   var enemyChar;
   var playerName;
   let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
+  let begin = new Audio("sound/opening.mp3");
+
+  begin.play()
+
 
   // $(document).ready(function() {
     /*
@@ -62,6 +66,7 @@
     userChar = new Gauntlet.Combatants[this.id]();
     userChar.playerName = playerName;
     console.log("userChar", userChar);
+    begin.pause();
   });
 
 

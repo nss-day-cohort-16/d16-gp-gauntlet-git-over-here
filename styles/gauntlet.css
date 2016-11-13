@@ -2,7 +2,8 @@ body {
   font-family: "Lato", "Helvetica", "sans-serif";
   margin: 0;
   padding: 10px;
-  font-size: 3em; }
+  font-size: 3em;
+  background-color: black; }
 
 .field {
   margin: 20px 0 0 0; }
@@ -99,5 +100,9 @@ body {
 
 .characterBtn {
   font-size: .5em; }
+
+img#game-main {
+  display: block;
+  margin: auto; }
 
 /*# sourceMappingURL=gauntlet.css.map */

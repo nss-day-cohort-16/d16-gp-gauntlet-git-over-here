@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background-color: black;
 }
 
 .field {
@@ -123,4 +124,10 @@ body {
 
 .characterBtn {
   font-size: .5em;
+}
+
+
+img#game-main {
+  display: block;
+  margin: auto;
 }
