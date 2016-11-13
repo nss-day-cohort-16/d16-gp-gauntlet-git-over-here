@@ -33,6 +33,9 @@
         case "card--weapon":
           moveAlong = ($("#player-name").val() !== "");
           break;
+        case "card--battleground":
+          moveAlong = ($("#player-name").val() !== "");
+          break;
       }
 
       if (moveAlong) {
@@ -85,9 +88,9 @@
   });
 
    function updateStats() {
-    $("#player").find("p").html(`${userChar.playerName}`)
+    $("#player").find("p").html(`${userChar.playerName}`);
     $("#playerHealth").html(` "Health: ${userChar.health}" `);
-    $("#userImage").attr("src", ` ${userChar.image} `)
+    $("#userImage").attr("src", ` ${userChar.image} `);
     $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
     $("#enemyImage").attr("src", ` ${enemyChar.image} `);
     }
@@ -110,7 +113,7 @@
     console.log("enemyChar.health", enemyChar.health);
     console.log("userChar.health", userChar.health);
 
-  })
+  });
 
   //determines if someone has won the game
   $(document).on("click", "#attackbtn", function() {
@@ -121,7 +124,7 @@
         $(".card").hide();
         $("#defeatPage").show();
     }
-  })
+  });
 
 
 
