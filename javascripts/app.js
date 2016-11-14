@@ -118,14 +118,36 @@
     console.log("enemyCharPercent", enemyCharPercent);
     $("#player").find("p").html(`${userChar.playerName}`);
     $("#enemy").find("p").html(`${enemyChar.name}`);
-    $("#playerHealth").html(` Health: ${userChar.health} `);
+    // old version
+    // $("#playerHealth").html(` Health: ${userChar.health} `);
+
+    // new version, using #playerHealth to represent player weapon
+    $("#playerHealth").html(`Weapon: ${userChar.weapon}`);
+
+
+
     $("#userImage").attr("src", ` ${userChar.image} `);
-    $("#enemyHealth").html(` Health: ${enemyChar.health} `);
+
+    // old version
+    // $("#enemyHealth").html(` Health: ${enemyChar.health} `);
+
+    // new version using #enemyHealth to represent enemy weapon
+    $("#enemyHealth").html(`Weapon: ${enemyChar.weapon}`);
+
+
+
     $("#enemyImage").attr("src", ` ${enemyChar.image} `);
     $("#playerBar").attr("style", `width:${userHealthPercent}%`);
     $("#enemyBar").attr("style", `width:${enemyCharPercent}%`);
     $("#playerBar").html(`${userHealthPercent}%`);
     $("#enemyBar").html(`${enemyCharPercent}%`);
+
+
+    //weapon icons
+    $("#enemyWeapon").attr("src", ` ${enemyChar.weapon.image} `);
+    $("#playerWeapon").attr("src", ` ${userChar.weapon.image} `);
+
+
     }
 
 

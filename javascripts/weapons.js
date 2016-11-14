@@ -9,6 +9,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "bare hands";
     this.damage = 1;
     this.hands = 2;
+    this.image = "images/weapons/hand.jpg";
 
     this.toString = function() {
       return this.name;
@@ -19,6 +20,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "dagger";
     this.damage = 4;
     this.hands = 1;
+    this.image = "images/weapons/dagger.png";
   };
   oldGauntlet.Weapons.Dagger.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -26,6 +28,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "broad sword";
     this.damage = 14;
     this.hands = 2;
+    this.image = "images/weapons/broadsword.jpg";
   };
   oldGauntlet.Weapons.BroadSword.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -33,6 +36,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "war axe";
     this.damage = 18;
     this.hands = 2;
+    this.image = "images/weapons/waraxe.jpg";
   };
   oldGauntlet.Weapons.WarAxe.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -40,10 +44,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "Frying Pan";
     this.damage = 2;
     this.hands = 1;
-
-    this.toString = function() {
-      return this.name;
-    };
+    this.image = "images/weapons/fryingpan.jpg";
   };
   oldGauntlet.Weapons.FryingPan.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -51,6 +52,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "Machine Gun";
     this.damage = 15;
     this.hands = 2;
+    this.image = "images/weapons/machinegun.png";
   };
   oldGauntlet.Weapons.MachineGun.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -58,6 +60,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.name = "Truth Bomb";
     this.damage = 30;
     this.hands = 2;
+    this.image = "images/weapons/truth.png";
   };
   oldGauntlet.Weapons.TruthBomb.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -65,6 +68,7 @@ var Gauntlet = (function(oldGauntlet) {
    this.name = "Fecal Fedora";
    this.damage = 39;
    this.hands = 1;
+   this.image = "images/weapons/fecal.jpg";
   };
   oldGauntlet.Weapons.FecalFedora.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -72,6 +76,7 @@ var Gauntlet = (function(oldGauntlet) {
    this.name = "Tickle Fingers";
    this.damage = 12;
    this.hands = 3;
+   this.image = "images/weapons/tickle.jpeg";
   };
   oldGauntlet.Weapons.TickleFingers.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -80,6 +85,7 @@ var Gauntlet = (function(oldGauntlet) {
    this.name = "Hadooken";
    this.damage = 27;
    this.hands = 4;
+   this.image = "images/weapons/hadooken.png";
   };
   oldGauntlet.Weapons.Hadooken.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -87,6 +93,7 @@ var Gauntlet = (function(oldGauntlet) {
       this.name = "leaf shield";
       this.damage = 8;
       this.hands = 3;
+      this.image = "images/weapons/leafshield.jpg";
   };
   oldGauntlet.Weapons.LeafShield.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -94,6 +101,7 @@ var Gauntlet = (function(oldGauntlet) {
       this.name = "atomic fire";
       this.damage = 9;
       this.hands = 4;
+      this.image = "images/weapons/atomicfire.png";
   };
   oldGauntlet.Weapons.AtomicFire.prototype = new oldGauntlet.Weapons.Weapon();
 
@@ -102,6 +110,7 @@ var Gauntlet = (function(oldGauntlet) {
       this.name = "scissors";
       this.damage = 7;
       this.hands = 2;
+      this.image = "images/weapons/scissor.jpg";
   };
   oldGauntlet.Weapons.Scissors.prototype = new oldGauntlet.Weapons.Weapon();
 
