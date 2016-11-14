@@ -230,10 +230,35 @@
   //version with random percentage of damage inflicted
   $(document).on("click", "#attackbtn", attack);
 
+
+
+  $("#tryAgain").click(function() {
+    $("#defeatPage").hide();
+  });
+
+
+  $("#nextRound").click(function() {
+    userChar.health = userChar.maxHealth;
+    enemyChar = Gauntlet.Combatants.generateCharacter();
+    enemyCharHealth = enemyChar.health;
+    updateStats();
+    console.log("enemyChar", enemyChar);
+    let shootFood = new Audio("sound/dontshootfood.wav");
+    shootFood.play();
+    MKmusic.play();
+    $("body").attr("id", "battleview");
+    $("#game-main").remove();
+    $("#victoryPage").hide();
+  });
+
   // return oldGauntlet;
 
 
 // })(Gauntlet || {});
+
+
+
+
 
 
 
