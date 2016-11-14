@@ -117,6 +117,7 @@
     console.log("userHealthPercent", userHealthPercent);
     console.log("enemyCharPercent", enemyCharPercent);
     $("#player").find("p").html(`${userChar.playerName}`);
+    $("#enemy").find("p").html(`${enemyChar.name}`);
     $("#playerHealth").html(` Health: ${userChar.health} `);
     $("#userImage").attr("src", ` ${userChar.image} `);
     $("#enemyHealth").html(` Health: ${enemyChar.health} `);
