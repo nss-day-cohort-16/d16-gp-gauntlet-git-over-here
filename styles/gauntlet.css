@@ -132,6 +132,7 @@ img#game-main {
 
 h1 {
   text-align: center;
-  text-shadow: 5px 5px 5px #fff; }
+  color: #fff;
+  text-shadow: 2px 2px 2px #fff; }
 
 /*# sourceMappingURL=gauntlet.css.map */
