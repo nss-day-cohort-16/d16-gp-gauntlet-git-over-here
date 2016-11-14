@@ -14,7 +14,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.class = null;
     this.weapon = null;
     this.playerName = name || "unknown adventurer";
-    this.health = this.health = Math.floor(Math.random() * 40 + 50);
+    this.health = Math.floor(Math.random() * 40 + 50);
     this.strength = 90;
     this.intelligence = 90;
 

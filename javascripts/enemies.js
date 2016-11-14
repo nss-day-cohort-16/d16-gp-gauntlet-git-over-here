@@ -8,6 +8,7 @@ var Gauntlet = (function(oldGauntlet) {
 	  this.costume = ["black pants", "white shoes", "red headband"];
 	  this.weapon = new Gauntlet.Weapons.Weapon();
 	  this.health = this.health + 30; 
+	  this.maxHealth = this.health;
 	};
 
 	oldGauntlet.Combatants.LiuKang.prototype = new Gauntlet.Combatants.Player();
@@ -18,6 +19,7 @@ var Gauntlet = (function(oldGauntlet) {
 	  this.costume = ["Hat", "blue vest", "white pants", "white shirt", "white shoes"];
 	  this.weapon = new Gauntlet.Weapons.Weapon();
 	  this.health = this.health + 10; 
+	  this.maxHealth = this.health;
 	};
 
 	oldGauntlet.Combatants.Raiden.prototype = new Gauntlet.Combatants.Player();
@@ -28,6 +30,7 @@ var Gauntlet = (function(oldGauntlet) {
 	  this.costume = ["blue pants", "black sleeveless shirt vest", "forearm and shin armor", "black hat", "red belt"];
 	  this.weapon = new Gauntlet.Weapons.Weapon();
 	  this.health = this.health + 5; 
+	  this.maxHealth = this.health;
 	};
 
 	oldGauntlet.Combatants.KungLao.prototype = new Gauntlet.Combatants.Player();
@@ -35,6 +38,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Kirby = function() {
 	  this.name = "Kirby";
 	  this.health = this.health + 5;
+	  this.maxHealth = this.health;
 	  this.weapon = new Gauntlet.Weapons.FryingPan();
 	  this.strength = 40;
 	  this.intelligence = 110;
@@ -46,6 +50,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.NaziTeddyBear = function() {
 		this.name = "Nazi Teddy Bear";
 		this.health = this.health + 15;
+		this.maxHealth = this.health;
 		this.weapon = new Gauntlet.Weapons.MachineGun();
 		this.strength = 40;
 		this.intelligence = 20;
@@ -57,6 +62,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.BernieSanders = function() {
 		this.name = "Bernie Sanders";
 		this.health = this.health + 30;
+		this.maxHealth = this.health;
 		this.weapon = new Gauntlet.Weapons.TruthBomb();
 		this.strength = 30;
 		this.intelligence = 250;
@@ -67,6 +73,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.MightyPoo = function() {
 	  this.name = "The Great and Mighty Poo";
 	  this.health = this.health + 30;
+	  this.maxHealth = this.health;
 	  this.weapon =  new Gauntlet.Weapons.FecalFedora();
 	  this.image = "images/poo.png";
 	};
@@ -76,6 +83,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Ryu = function() {
 	  this.name = "Ryu";
 	  this.health = this.health + 0;
+	  this.maxHealth = this.health;
 	  this.costume = "Karate Suit";
 	  this.weapon = new Gauntlet.Weapons.Hadooken();
 	  this.image =  "images/ryu.png";
@@ -86,6 +94,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Tingle = function() {
 	  this.name = "Tingle";
 	  this.health = this.health + 0;
+	  this.maxHealth = this.health;
 	  this.costume = "Green Leotard";
 	  this.weapon = new Gauntlet.Weapons.TickleFingers();
 	  this.image = "images/tingle.png";
@@ -96,6 +105,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Woodman = function() {
 	    this.name = "Woodman";
 	    this.health = this.health + 15;
+	    this.maxHealth = this.health;
 	    this.weapon = new Gauntlet.Weapons.LeafShield();
 	    this.image = "images/woodman.jpg";
 	};
@@ -106,6 +116,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Heatman = function() {
 	    this.name = "Heatman";
 	    this.health = this.health + 30;
+	    this.maxHealth = this.health;
 	    this.weapon = new Gauntlet.Weapons.AtomicFire();
 	    this.image = "images/heatman.png";
 	};
@@ -115,6 +126,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Cutman = function() {
 	    this.name = "Cutman";
 	    this.health = this.health + 25;
+	    this.maxHealth = this.health;
 	    this.weapon = new Gauntlet.Weapons.Scissors();
 	    this.image = "images/cutman.png";
 	};
