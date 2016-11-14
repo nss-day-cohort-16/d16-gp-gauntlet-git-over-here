@@ -10,6 +10,8 @@
   var playerName;
   let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
   let begin = new Audio("sound/opening.mp3");
+  var userCharHealth;
+  var enemyCharHealth;
 
   begin.play()
 
@@ -66,7 +68,7 @@
     userChar = new Gauntlet.Combatants[this.id]();
     console.log(Gauntlet.Combatants[this.id]);
     userChar.playerName = playerName;
-    console.log("userChar", userChar);
+    userCharHealth = userChar.health;
     begin.pause();
     let brave = new Audio("sound/brave.wav");
     brave.play();
@@ -80,6 +82,7 @@
   $("#randomBtn").on("click", function() {
     userChar = Gauntlet.Combatants.generateCharacter();
     userChar.playerName = playerName;
+    userCharHealth = userChar.health;
     console.log("userChar", userChar);
   });
 
@@ -90,18 +93,29 @@
 
   $("#fightBtn").on("click", function() {
     enemyChar = Gauntlet.Combatants.generateCharacter();
+    enemyCharHealth = enemyChar.health;
     updateStats();
     console.log("enemyChar", enemyChar);
+    let shootFood = new Audio("sound/dontshootfood.wav");
+    shootFood.play();
     $("body").attr("id", "battleview");
     $("#game-main").remove();
   });
 
    function updateStats() {
+    let userHealthPercent = Math.round((userChar.health / userCharHealth) * 100);
+    let enemyCharPercent = Math.round((enemyChar.health / enemyCharHealth) * 100);
+    console.log("userHealthPercent", userHealthPercent);
+    console.log("enemyCharPercent", enemyCharPercent);
     $("#player").find("p").html(`${userChar.playerName}`);
     $("#playerHealth").html(` Health: ${userChar.health} `);
     $("#userImage").attr("src", ` ${userChar.image} `);
     $("#enemyHealth").html(` Health: ${enemyChar.health} `);
     $("#enemyImage").attr("src", ` ${enemyChar.image} `);
+    $("#playerBar").attr("style", `width:${userHealthPercent}%`);
+    $("#enemyBar").attr("style", `width:${enemyCharPercent}%`);
+    $("#playerBar").html(`${userHealthPercent}%`);
+    $("#enemyBar").html(`${enemyCharPercent}%`);
     }
 
 
@@ -115,6 +129,7 @@
   $(document).on("click", "#attackbtn", function() {
     //sound for attack
     //player attacks enemy with varying levels of success
+    
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
     //enemy attacks player with varying levels of success
     userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
