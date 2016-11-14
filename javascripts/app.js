@@ -90,6 +90,7 @@
     updateStats();
     console.log("enemyChar", enemyChar);
     $("body").attr("id", "battleview");
+    $("#game-main").remove();
   });
 
    function updateStats() {
@@ -109,6 +110,8 @@
   //attack function to process attacks and trigger function to update DOM with new health values
   //version with random percentage of damage inflicted
   $(document).on("click", "#attackbtn", function() {
+    //sound for attack
+    
     //player attacks enemy with varying levels of success
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
     //enemy attacks player with varying levels of success
