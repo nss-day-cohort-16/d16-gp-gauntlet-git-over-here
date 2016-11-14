@@ -10,6 +10,7 @@
   var playerName;
   let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
   let begin = new Audio("sound/opening.mp3");
+  let MKmusic = new Audio("sound/MKmusic.mp3");
   var userCharHealth;
   var enemyCharHealth;
 
@@ -17,6 +18,22 @@
 
 
   // $(document).ready(function() {
+
+  if (annyang) {
+  
+    var commands = {
+      'attack': function() {
+        console.log("Attack!");
+        attack();
+      }
+    };
+
+    // Add our commands to annyang
+    annyang.addCommands(commands);
+
+    annyang.start();
+  }
+
     /*
       Show the initial view that accepts player name
      */
@@ -107,6 +124,7 @@
     console.log("enemyChar", enemyChar);
     let shootFood = new Audio("sound/dontshootfood.wav");
     shootFood.play();
+    MKmusic.play();
     $("body").attr("id", "battleview");
     $("#game-main").remove();
   });
@@ -154,12 +172,7 @@
 
   //////////////////BATTLEGROUND LOGIC******************************
 
-
-
-  //attack function to process attacks and trigger function to update DOM with new health values
-  //version with random percentage of damage inflicted
-  $(document).on("click", "#attackbtn", function() {
-    //sound for attack
+  function attack() {
     //player attacks enemy with varying levels of success
     
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
@@ -169,30 +182,35 @@
     updateStats();
     console.log("enemyChar.health", enemyChar.health);
     console.log("userChar.health", userChar.health);
-
-  });
-
-  //determines if someone has won the game
-  $(document).on("click", "#attackbtn", function() {
     if (enemyChar.health <= 0) {
+        MKmusic.pause();
         $(".card").hide();
+        $("body").removeAttr("id", "battleview");
         $("#victoryPage").show();
+        $('h1').animate({ 
+          'font-size' : '4em'
+        },1000);
+
         let loseSound = new Audio("sound/needsfood.wav");
         loseSound.play();
     } else if (userChar.health <= 0) {
+        MKmusic.pause();
         $(".card").hide();
         $("#defeatPage").show();
+        $("body").removeAttr("id", "battleview");
+        $('h1').animate({ 
+          'font-size' : '4em'
+        },1000);
         let loseSound = new Audio("sound/needsfood.wav");
         loseSound.play();
     }
     // losing sound
+  }
 
 
-  });
-
-
-
-
+  //attack function to process attacks and trigger function to update DOM with new health values
+  //version with random percentage of damage inflicted
+  $(document).on("click", "#attackbtn", attack);
 
   // return oldGauntlet;
 
