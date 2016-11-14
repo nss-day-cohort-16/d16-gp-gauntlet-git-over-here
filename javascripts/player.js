@@ -14,7 +14,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.class = null;
     this.weapon = null;
     this.playerName = name || "unknown adventurer";
-    this.health = Math.floor(Math.random() * 40 + 50);
+    this.health = this.health = Math.floor(Math.random() * 40 + 50);
     this.strength = 90;
     this.intelligence = 90;
 
@@ -35,6 +35,10 @@ var Gauntlet = (function(oldGauntlet) {
 
   oldGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
     this.weapon = newWeapon;
+  };
+
+  oldGauntlet.Combatants.Player.prototype.setHealth = function() {
+    this.health = Math.floor(Math.random() * 40 + 50);
   };
 
   // Gauntlet.Combatants.generateCharacter = function(calledChar) {

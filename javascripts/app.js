@@ -64,6 +64,7 @@
   //select character event handler. Assigns an instance of a character to the userChar object
   $(document).on("click", ".charBtn", function() {
     userChar = new Gauntlet.Combatants[this.id]();
+    console.log(Gauntlet.Combatants[this.id]);
     userChar.playerName = playerName;
     console.log("userChar", userChar);
     begin.pause();
@@ -113,8 +114,6 @@
   //version with random percentage of damage inflicted
   $(document).on("click", "#attackbtn", function() {
     //sound for attack
-    let attackSound = new Audio("sound/ow.wav");
-    attackSound.play();
     //player attacks enemy with varying levels of success
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
     //enemy attacks player with varying levels of success
