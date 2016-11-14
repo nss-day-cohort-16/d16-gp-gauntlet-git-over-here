@@ -18,6 +18,22 @@
 
 
   // $(document).ready(function() {
+
+  if (annyang) {
+  
+    var commands = {
+      'attack': function() {
+        console.log("Attack!");
+        attack();
+      }
+    };
+
+    // Add our commands to annyang
+    annyang.addCommands(commands);
+
+    annyang.start();
+  }
+
     /*
       Show the initial view that accepts player name
      */
@@ -156,12 +172,7 @@
 
   //////////////////BATTLEGROUND LOGIC******************************
 
-
-
-  //attack function to process attacks and trigger function to update DOM with new health values
-  //version with random percentage of damage inflicted
-  $(document).on("click", "#attackbtn", function() {
-    //sound for attack
+  function attack() {
     //player attacks enemy with varying levels of success
     
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
@@ -171,11 +182,6 @@
     updateStats();
     console.log("enemyChar.health", enemyChar.health);
     console.log("userChar.health", userChar.health);
-
-  });
-
-  //determines if someone has won the game
-  $(document).on("click", "#attackbtn", function() {
     if (enemyChar.health <= 0) {
         MKmusic.pause();
         $(".card").hide();
@@ -199,13 +205,12 @@
         loseSound.play();
     }
     // losing sound
+  }
 
 
-  });
-
-
-
-
+  //attack function to process attacks and trigger function to update DOM with new health values
+  //version with random percentage of damage inflicted
+  $(document).on("click", "#attackbtn", attack);
 
   // return oldGauntlet;
 
