@@ -1,7 +1,5 @@
 "use strict";
 
-
-// var Gauntlet = (function(oldGauntlet) {
 /*
   Test code to generate a human player and an orc player
  */
@@ -14,16 +12,13 @@
   var userCharHealth;
   var enemyCharHealth;
 
-  begin.play()
+  begin.play();
 
-
-  // $(document).ready(function() {
 
   if (annyang) {
   
     var commands = {
       'attack': function() {
-        console.log("Attack!");
         attack();
       }
     };
@@ -51,7 +46,6 @@
         case "card--class":
           moveAlong = ($("#player-name").val() !== "");
           playerName = $("#player-name").val();
-          console.log("playerName", playerName);
           break;
         case "card--weapon":
           moveAlong = ($("#player-name").val() !== "");
@@ -76,14 +70,10 @@
       $("." + previousCard).show();
     });
 
-  // });
-
-
 
   //select character event handler. Assigns an instance of a character to the userChar object
   $(document).on("click", ".charBtn", function() {
     userChar = new Gauntlet.Combatants[this.id]();
-    console.log(Gauntlet.Combatants[this.id]);
     userChar.playerName = playerName;
     userCharHealth = userChar.health;
     begin.pause();
@@ -95,8 +85,6 @@
 
     $(document).on("click", ".weaponBtn", function() {
     userChar.weapon = new Gauntlet.Weapons[this.id]();
-    console.log(Gauntlet.Weapons[this.id]);
-    console.log("userChar", userChar);
     let brave = new Audio("sound/brave.wav");
     brave.play();
   });
@@ -109,7 +97,6 @@
     userChar = Gauntlet.Combatants.generateCharacter();
     userChar.playerName = playerName;
     userCharHealth = userChar.health;
-    console.log("userChar", userChar);
     begin.pause();
     let brave = new Audio("sound/brave.wav");
     brave.play();
@@ -125,7 +112,6 @@
     enemyChar = Gauntlet.Combatants.generateCharacter();
     enemyCharHealth = enemyChar.health;
     updateStats();
-    console.log("enemyChar", enemyChar);
     let shootFood = new Audio("sound/dontshootfood.wav");
     shootFood.play();
     MKmusic.play();
@@ -136,24 +122,14 @@
    function updateStats() {
     let userHealthPercent = Math.round((userChar.health / userCharHealth) * 100);
     let enemyCharPercent = Math.round((enemyChar.health / enemyCharHealth) * 100);
-    console.log("userHealthPercent", userHealthPercent);
-    console.log("enemyCharPercent", enemyCharPercent);
     $("#player").find("p").html(`${userChar.playerName}`);
     $("#enemy").find("p").html(`${enemyChar.name}`);
-    // old version
-    // $("#playerHealth").html(` Health: ${userChar.health} `);
-
-    // new version, using #playerHealth to represent player weapon
     $("#playerHealth").html(`Weapon: ${userChar.weapon}`);
 
 
 
     $("#userImage").attr("src", ` ${userChar.image} `);
 
-    // old version
-    // $("#enemyHealth").html(` Health: ${enemyChar.health} `);
-
-    // new version using #enemyHealth to represent enemy weapon
     $("#enemyHealth").html(`Weapon: ${enemyChar.weapon}`);
 
 
@@ -198,8 +174,6 @@
     userChar.health -= Math.ceil(enemyChar.weapon.damage * Math.random());
     //trigger function that updates the DOM
     updateStats();
-    console.log("enemyChar.health", enemyChar.health);
-    console.log("userChar.health", userChar.health);
     if (enemyChar.health <= 0) {
         MKmusic.pause();
         $(".card").hide();
@@ -242,7 +216,6 @@
     enemyChar = Gauntlet.Combatants.generateCharacter();
     enemyCharHealth = enemyChar.health;
     updateStats();
-    console.log("enemyChar", enemyChar);
     let shootFood = new Audio("sound/dontshootfood.wav");
     shootFood.play();
     MKmusic.play();
@@ -250,11 +223,6 @@
     $("#game-main").remove();
     $("#victoryPage").hide();
   });
-
-  // return oldGauntlet;
-
-
-// })(Gauntlet || {});
 
 
 

@@ -10,7 +10,7 @@ var Gauntlet = (function(oldGauntlet) {
     this.damage = 1;
     this.hands = 2;
     this.image = "images/weapons/hand.jpg";
-    this.sound = "sound/weapons/hands.mp3"
+    this.sound = "sound/weapons/hands.mp3";
 
     this.toString = function() {
       return this.name;
