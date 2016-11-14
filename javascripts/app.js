@@ -10,6 +10,7 @@
   var playerName;
   let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
   let begin = new Audio("sound/opening.mp3");
+  let MKmusic = new Audio("sound/MKmusic.mp3");
   var userCharHealth;
   var enemyCharHealth;
 
@@ -107,6 +108,7 @@
     console.log("enemyChar", enemyChar);
     let shootFood = new Audio("sound/dontshootfood.wav");
     shootFood.play();
+    MKmusic.play();
     $("body").attr("id", "battleview");
     $("#game-main").remove();
   });
@@ -175,11 +177,13 @@
   //determines if someone has won the game
   $(document).on("click", "#attackbtn", function() {
     if (enemyChar.health <= 0) {
+        MKmusic.pause();
         $(".card").hide();
         $("#victoryPage").show();
         let loseSound = new Audio("sound/needsfood.wav");
         loseSound.play();
     } else if (userChar.health <= 0) {
+        MKmusic.pause();
         $(".card").hide();
         $("#defeatPage").show();
         let loseSound = new Audio("sound/needsfood.wav");
