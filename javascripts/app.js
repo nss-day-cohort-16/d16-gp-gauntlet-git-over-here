@@ -179,13 +179,22 @@
     if (enemyChar.health <= 0) {
         MKmusic.pause();
         $(".card").hide();
+        $("body").removeAttr("id", "battleview");
         $("#victoryPage").show();
+        $('h1').animate({ 
+          'font-size' : '4em'
+        },1000);
+
         let loseSound = new Audio("sound/needsfood.wav");
         loseSound.play();
     } else if (userChar.health <= 0) {
         MKmusic.pause();
         $(".card").hide();
         $("#defeatPage").show();
+        $("body").removeAttr("id", "battleview");
+        $('h1').animate({ 
+          'font-size' : '4em'
+        },1000);
         let loseSound = new Audio("sound/needsfood.wav");
         loseSound.play();
     }
