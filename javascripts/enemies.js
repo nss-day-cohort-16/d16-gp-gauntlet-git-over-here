@@ -74,6 +74,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.MightyPoo.prototype = new Gauntlet.Combatants.Player();
 
 	oldGauntlet.Combatants.Ryu = function() {
+	  this.name = "Ryu";
 	  this.health = this.health + 0;
 	  this.costume = "Karate Suit";
 	  this.weapon = new Gauntlet.Weapons.Hadooken();
@@ -83,6 +84,7 @@ var Gauntlet = (function(oldGauntlet) {
 	oldGauntlet.Combatants.Ryu.prototype = new Gauntlet.Combatants.Player();
 
 	oldGauntlet.Combatants.Tingle = function() {
+	  this.name = "Tingle";
 	  this.health = this.health + 0;
 	  this.costume = "Green Leotard";
 	  this.weapon = new Gauntlet.Weapons.TickleFingers();

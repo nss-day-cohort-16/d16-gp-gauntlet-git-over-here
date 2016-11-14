@@ -76,6 +76,15 @@
 
 
 
+    $(document).on("click", ".weaponBtn", function() {
+    userChar.weapon = new Gauntlet.Weapons[this.id]();
+    console.log(Gauntlet.Weapons[this.id]);
+    console.log("userChar", userChar);
+    let brave = new Audio("sound/brave.wav");
+    brave.play();
+  });
+
+
 
 
 
@@ -108,6 +117,7 @@
     console.log("userHealthPercent", userHealthPercent);
     console.log("enemyCharPercent", enemyCharPercent);
     $("#player").find("p").html(`${userChar.playerName}`);
+    $("#enemy").find("p").html(`${enemyChar.name}`);
     $("#playerHealth").html(` Health: ${userChar.health} `);
     $("#userImage").attr("src", ` ${userChar.image} `);
     $("#enemyHealth").html(` Health: ${enemyChar.health} `);
