@@ -9,6 +9,10 @@
   var enemyChar;
   var playerName;
   let charArr = ["Kirby", "NaziTeddyBear", "BernieSanders", "LiuKang", "Raiden", "KungLao", "Woodman", "Heatman", "Cutman", "Ryu", "MightyPoo", "Tingle"];
+  let begin = new Audio("sound/opening.mp3");
+
+  begin.play()
+
 
   // $(document).ready(function() {
     /*
@@ -60,8 +64,12 @@
   //select character event handler. Assigns an instance of a character to the userChar object
   $(document).on("click", ".charBtn", function() {
     userChar = new Gauntlet.Combatants[this.id]();
+    console.log(Gauntlet.Combatants[this.id]);
     userChar.playerName = playerName;
     console.log("userChar", userChar);
+    begin.pause();
+    let brave = new Audio("sound/brave.wav");
+    brave.play();
   });
 
 
@@ -85,13 +93,14 @@
     updateStats();
     console.log("enemyChar", enemyChar);
     $("body").attr("id", "battleview");
+    $("#game-main").remove();
   });
 
    function updateStats() {
     $("#player").find("p").html(`${userChar.playerName}`);
-    $("#playerHealth").html(` "Health: ${userChar.health}" `);
+    $("#playerHealth").html(` Health: ${userChar.health} `);
     $("#userImage").attr("src", ` ${userChar.image} `);
-    $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
+    $("#enemyHealth").html(` Health: ${enemyChar.health} `);
     $("#enemyImage").attr("src", ` ${enemyChar.image} `);
     }
 
@@ -104,6 +113,7 @@
   //attack function to process attacks and trigger function to update DOM with new health values
   //version with random percentage of damage inflicted
   $(document).on("click", "#attackbtn", function() {
+    //sound for attack
     //player attacks enemy with varying levels of success
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
     //enemy attacks player with varying levels of success
@@ -120,11 +130,19 @@
     if (enemyChar.health <= 0) {
         $(".card").hide();
         $("#victoryPage").show();
+        let loseSound = new Audio("sound/needsfood.wav");
+        loseSound.play();
     } else if (userChar.health <= 0) {
         $(".card").hide();
         $("#defeatPage").show();
+        let loseSound = new Audio("sound/needsfood.wav");
+        loseSound.play();
     }
+    // losing sound
+
+
   });
+
 
 
 
