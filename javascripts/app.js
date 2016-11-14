@@ -67,6 +67,8 @@
     userChar.playerName = playerName;
     console.log("userChar", userChar);
     begin.pause();
+    let brave = new Audio("sound/brave.wav");
+    brave.play();
   });
 
 
@@ -95,9 +97,9 @@
 
    function updateStats() {
     $("#player").find("p").html(`${userChar.playerName}`);
-    $("#playerHealth").html(` "Health: ${userChar.health}" `);
+    $("#playerHealth").html(` Health: ${userChar.health} `);
     $("#userImage").attr("src", ` ${userChar.image} `);
-    $("#enemyHealth").html(` "Health: ${enemyChar.health}" `);
+    $("#enemyHealth").html(` Health: ${enemyChar.health} `);
     $("#enemyImage").attr("src", ` ${enemyChar.image} `);
     }
 
@@ -111,7 +113,8 @@
   //version with random percentage of damage inflicted
   $(document).on("click", "#attackbtn", function() {
     //sound for attack
-    
+    let attackSound = new Audio("sound/ow.wav");
+    attackSound.play();
     //player attacks enemy with varying levels of success
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
     //enemy attacks player with varying levels of success
@@ -128,11 +131,19 @@
     if (enemyChar.health <= 0) {
         $(".card").hide();
         $("#victoryPage").show();
+        let loseSound = new Audio("sound/needsfood.wav");
+        loseSound.play();
     } else if (userChar.health <= 0) {
         $(".card").hide();
         $("#defeatPage").show();
+        let loseSound = new Audio("sound/needsfood.wav");
+        loseSound.play();
     }
+    // losing sound
+
+
   });
+
 
 
 
