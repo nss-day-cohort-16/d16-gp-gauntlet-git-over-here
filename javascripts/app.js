@@ -110,6 +110,10 @@
     userChar.playerName = playerName;
     userCharHealth = userChar.health;
     console.log("userChar", userChar);
+    begin.pause();
+    let brave = new Audio("sound/brave.wav");
+    brave.play();
+
   });
 
 
@@ -173,6 +177,20 @@
   //////////////////BATTLEGROUND LOGIC******************************
 
   function attack() {
+
+
+
+    //attack sound logic
+    let userAttackSound = new Audio(userChar.weapon.sound);
+    let enemyAttackSound = new Audio(enemyChar.weapon.sound);
+    if (Math.random() < 0.5) {
+      userAttackSound.play();
+    } else {
+      enemyAttackSound.play();
+    }
+
+
+
     //player attacks enemy with varying levels of success
     
     enemyChar.health -= Math.ceil(userChar.weapon.damage * Math.random());
