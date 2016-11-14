@@ -74,6 +74,15 @@
 
 
 
+    $(document).on("click", ".weaponBtn", function() {
+    userChar.weapon = new Gauntlet.Weapons[this.id]();
+    console.log(Gauntlet.Weapons[this.id]);
+    console.log("userChar", userChar);
+    let brave = new Audio("sound/brave.wav");
+    brave.play();
+  });
+
+
 
 
 
